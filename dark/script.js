@@ -127,10 +127,10 @@ form.addEventListener("submit", (e) => {
     .join("\n");
   document.querySelector("#message-preview").textContent = message;
   const encoded = encodeURIComponent(message);
-  document.querySelector("#sms-primary").href =
-    `sms:01029655607?body=${encoded}`;
-  document.querySelector("#sms-secondary").href =
-    `sms:0107148834?body=${encoded}`;
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  document.querySelector("#sms-all").href = isIOS
+    ? `sms:01029655607,0107148834&body=${encoded}`
+    : `sms:01029655607,0107148834?body=${encoded}`;
   form.hidden = true;
   success.hidden = false;
 });
