@@ -633,6 +633,24 @@ header nav a:hover {
 }
 .visit-actions {
   grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.visit-actions .btn {
+  min-width: 0;
+  width: 100%;
+}
+.naver-talk {
+  background: #e6efdf;
+  border: 1px solid #9bb58d;
+}
+.naver-booking {
+  background: #b9d985;
+  border: 1px solid #a3c46f;
+}
+.visit-actions span {
+  font-size: 13px;
 }
 footer {
   padding: 65px 7vw;
@@ -940,7 +958,8 @@ textarea {
   }
   .visit-actions {
     grid-column: 1;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 9px;
   }
   .visit .btn {
     width: 100%;
