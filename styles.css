@@ -90,6 +90,26 @@ header nav a:hover {
   padding: 15px 21px;
   cursor: pointer;
 }
+.theme-compare {
+  position: fixed;
+  z-index: 19;
+  left: 18px;
+  bottom: 18px;
+  padding: 13px 15px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+  transition: transform 0.18s ease;
+}
+.theme-compare:hover,
+.theme-compare:focus-visible {
+  transform: translateY(-3px);
+}
+.theme-compare span {
+  color: var(--lime);
+}
 .hero {
   height: min(920px, 100svh);
   min-height: 760px;
@@ -741,6 +761,11 @@ textarea {
   .top-ot {
     margin-left: auto;
     padding: 12px;
+  }
+  .theme-compare {
+    left: 12px;
+    bottom: 12px;
+    padding: 11px 12px;
   }
   .hero {
     min-height: 800px;
