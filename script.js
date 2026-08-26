@@ -113,6 +113,24 @@ dialog.addEventListener("click", (e) => {
 });
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  const data = new FormData(form);
+  const trainer = document.querySelector("#selected-trainer").textContent.trim();
+  const message = [
+    "[1986피트니스 가양점 OT 신청]",
+    `신청자성함: ${data.get("name")}`,
+    `연락처: ${data.get("phone")}`,
+    `트레이너: ${trainer}`,
+    `목적: ${data.get("goal")}`,
+    data.get("time") ? `희망시간: ${data.get("time")}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+  document.querySelector("#message-preview").textContent = message;
+  const encoded = encodeURIComponent(message);
+  document.querySelector("#sms-primary").href =
+    `sms:01029655607?body=${encoded}`;
+  document.querySelector("#sms-secondary").href =
+    `sms:0107148834?body=${encoded}`;
   form.hidden = true;
   success.hidden = false;
 });
