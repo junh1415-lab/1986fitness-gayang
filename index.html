@@ -146,12 +146,16 @@
             OT를 신청할 수 있습니다.
           </p>
         </div>
-        <div class="trainer-tabs" role="tablist">
-          <button class="active" data-index="0">김민형</button
-          ><button data-index="1">이재영</button
-          ><button data-index="2">김도윤</button
-          ><button data-index="3">조근이</button
-          ><button data-index="4">박소현</button>
+        <div class="trainer-tabs-shell">
+          <button class="trainer-arrow trainer-prev" type="button" aria-label="이전 트레이너" disabled>←</button>
+          <div class="trainer-tabs" role="tablist" aria-label="트레이너 선택">
+            <button class="active" role="tab" aria-selected="true" data-index="0">김민형</button
+            ><button role="tab" aria-selected="false" data-index="1">이재영</button
+            ><button role="tab" aria-selected="false" data-index="2">김도윤</button
+            ><button role="tab" aria-selected="false" data-index="3">조근이</button
+            ><button role="tab" aria-selected="false" data-index="4">박소현</button>
+          </div>
+          <button class="trainer-arrow trainer-next" type="button" aria-label="다음 트레이너">→</button>
         </div>
         <div class="trainer-stage reveal">
           <div class="trainer-visual">

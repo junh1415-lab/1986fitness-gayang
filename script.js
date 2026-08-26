@@ -68,11 +68,26 @@ const trainers = [
   },
 ];
 const tabs = document.querySelectorAll(".trainer-tabs button");
+const prevTrainer = document.querySelector(".trainer-prev");
+const nextTrainer = document.querySelector(".trainer-next");
+let activeTrainerIndex = 0;
+
+function updateTrainerArrows() {
+  prevTrainer.disabled = activeTrainerIndex === 0;
+  nextTrainer.disabled = activeTrainerIndex === tabs.length - 1;
+}
+
 tabs.forEach((btn) =>
   btn.addEventListener("click", () => {
     const i = Number(btn.dataset.index),
       t = trainers[i];
-    tabs.forEach((b) => b.classList.toggle("active", b === btn));
+    activeTrainerIndex = i;
+    tabs.forEach((b) => {
+      const selected = b === btn;
+      b.classList.toggle("active", selected);
+      b.setAttribute("aria-selected", String(selected));
+    });
+    updateTrainerArrows();
     const image = document.querySelector("#trainer-image");
     image.style.opacity = "0";
     setTimeout(() => {
@@ -92,6 +107,9 @@ tabs.forEach((btn) =>
     ot.textContent = `${t.name} 트레이너 OT 신청 ↗`;
   }),
 );
+prevTrainer.addEventListener("click", () => tabs[activeTrainerIndex - 1]?.click());
+nextTrainer.addEventListener("click", () => tabs[activeTrainerIndex + 1]?.click());
+updateTrainerArrows();
 
 const dialog = document.querySelector("#ot-dialog"),
   form = document.querySelector("#ot-form"),
