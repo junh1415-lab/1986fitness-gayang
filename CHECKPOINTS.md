@@ -34,6 +34,9 @@
 - `git diff --check`
 - 익명 조회 요청 401 확인
 
-## release-handoff — 진행 중
+## release-handoff — 완료
 
-- GitHub Pages 배포 및 실제 공개 주소 확인
+- GitHub Pages 배포 성공
+- 공개 `/admin/`에서 비로그인 상태에는 로그인 화면만 표시됨
+- 관리자 모바일 390px 화면에서 가로 넘침 없음
+- 공개 메인 OT 양식에서 개인정보 동의와 새 접수 문구 확인
