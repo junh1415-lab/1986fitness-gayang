@@ -732,6 +732,26 @@ textarea {
   color: #777;
   line-height: 1.5;
 }
+.privacy-check {
+  grid-column: 1/-1;
+  display: flex;
+  grid-template-columns: none;
+  align-items: flex-start;
+  gap: 9px;
+  line-height: 1.5;
+}
+.privacy-check input {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+.form-error {
+  grid-column: 1/-1;
+  margin: 0;
+  color: #a12820;
+  font-size: 12px;
+}
 .form-success {
   padding-top: 25px;
 }

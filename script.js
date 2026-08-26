@@ -101,6 +101,7 @@ document.addEventListener("click", (e) => {
   if (!button) return;
   document.querySelector("#selected-trainer").textContent =
     button.dataset.trainer;
+  document.querySelector("#ot-error").hidden = true;
   form.hidden = false;
   success.hidden = true;
   dialog.showModal();
@@ -110,30 +111,4 @@ document
   .addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", (e) => {
   if (e.target === dialog) dialog.close();
-});
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const data = new FormData(form);
-  const trainer = document.querySelector("#selected-trainer").textContent.trim();
-  const message = [
-    "[1986피트니스 가양점 OT 신청]",
-    `신청자성함: ${data.get("name")}`,
-    `연락처: ${data.get("phone")}`,
-    `트레이너: ${trainer}`,
-    `목적: ${data.get("goal")}`,
-    data.get("time") ? `희망시간: ${data.get("time")}` : "",
-  ]
-    .filter(Boolean)
-    .join("\n");
-  document.querySelector("#message-preview").textContent = message;
-  const encoded = encodeURIComponent(message);
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-  const isMobile = /Android|iPad|iPhone|iPod/i.test(navigator.userAgent);
-  const smsUri = isIOS
-    ? `sms:01029655607,0107148834&body=${encoded}`
-    : `sms:01029655607,0107148834?body=${encoded}`;
-  document.querySelector("#sms-all").href = smsUri;
-  form.hidden = true;
-  success.hidden = false;
-  if (isMobile) window.location.href = smsUri;
 });

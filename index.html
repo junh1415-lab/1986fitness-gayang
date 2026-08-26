@@ -276,12 +276,14 @@
           >이름<input
             name="name"
             required
+            maxlength="30"
             placeholder="이름을 입력해주세요" /></label
         ><label
           >연락처<input
             name="phone"
             required
             inputmode="tel"
+            pattern="01[0-9]-?[0-9]{3,4}-?[0-9]{4}"
             placeholder="010-0000-0000" /></label
         ><label
           >운동 목표<select name="goal">
@@ -294,25 +296,28 @@
         ><label
           >희망 시간<textarea
             name="time"
+            required
+            maxlength="300"
             placeholder="가능한 요일과 시간을 적어주세요"
           ></textarea></label
+        ><label class="privacy-check"><input type="checkbox" required />
+          <span>OT 상담을 위해 이름·연락처·운동 목적을 수집하고 센터 관리자가 확인하는 것에 동의합니다.</span>
+        </label
         ><button class="btn lime" type="submit">신청하기 ↗</button>
+        <p class="form-error" id="ot-error" role="alert" hidden></p>
         <p class="form-note">
-          입력 내용은 서버에 저장되지 않으며 문자 앱으로 보낼 내용을 만드는 데만
-          사용됩니다.
+          입력 정보는 OT 상담 목적으로만 사용되며 관리자만 확인할 수 있습니다.
         </p>
       </form>
       <div class="form-success" hidden>
-        <b>문자 앱을 열고 있습니다.</b>
-        <p>문자 앱에서 전송 버튼을 누르면 두 담당자에게 접수됩니다.</p>
-        <pre class="message-preview" id="message-preview" hidden></pre>
+        <b>OT 신청이 접수되었습니다.</b>
+        <p>담당자가 신청 내용을 확인한 뒤 입력하신 연락처로 안내드리겠습니다.</p>
         <div class="message-actions">
-          <a class="btn dark" id="sms-all" href="#">문자 앱 다시 열기 ↗</a>
           <a class="btn naver-talk" href="https://talk.naver.com/w40uyc?frm=mnmb&amp;frm=nmb_detail" target="_blank" rel="noreferrer">네이버 톡톡으로 문의 ↗</a>
         </div>
-        <p class="form-note">문자 앱의 수신자에 두 담당 번호가 함께 입력됩니다. 문자 앱에서 전송 버튼을 누르면 두 번호로 동시에 발송됩니다.</p>
       </div>
     </dialog>
-    <script src="script.js?v=20260826-4"></script>
+    <script src="script.js?v=20260826-5"></script>
+    <script type="module" src="ot-submit.js?v=20260826-1"></script>
   </body>
 </html>
