@@ -128,9 +128,12 @@ form.addEventListener("submit", (e) => {
   document.querySelector("#message-preview").textContent = message;
   const encoded = encodeURIComponent(message);
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-  document.querySelector("#sms-all").href = isIOS
+  const isMobile = /Android|iPad|iPhone|iPod/i.test(navigator.userAgent);
+  const smsUri = isIOS
     ? `sms:01029655607,0107148834&body=${encoded}`
     : `sms:01029655607,0107148834?body=${encoded}`;
+  document.querySelector("#sms-all").href = smsUri;
   form.hidden = true;
   success.hidden = false;
+  if (isMobile) window.location.href = smsUri;
 });
