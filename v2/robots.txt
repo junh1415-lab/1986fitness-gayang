@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://1986-fitness-gayang.github.io/sitemap.xml
